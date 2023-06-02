@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-#kw+=#8)j=j8#6gqr4nq2%k0c#q)9@hydw69knutxnz@jwrv0(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0","sentimental1.com","d13bsbzuwaq81p.cloudfront.net","ec2-52-0-54-166.compute-1.amazonaws.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     "events",
     "members",
     'rest_framework',
+
 ]
+
 
 AUTHENTICATION_BACKENDS = (  
     'django.contrib.auth.backends.ModelBackend',
@@ -65,20 +67,14 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "Web.urls"
 
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['http://ec2-44-203-187-4.compute-1.amazonaws.com','https://sentimental1.com','https://d13bsbzuwaq81p.cloudfront.net']
-CSRF_COOKIE_DOMAIN = '.sentimental1.com'
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = None
+CSRF_TRUSTED_ORIGINS = ['http://ec2-107-22-163-16.compute-1.amazonaws.com','http://107.22.163.16']
 
-
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
